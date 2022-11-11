@@ -10,7 +10,7 @@ properties([
 pipeline {
     agent {
         docker {
-            image 'centos:latest'
+            image 'centos'
             label 'dind'
             }
          }
