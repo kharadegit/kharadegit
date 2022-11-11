@@ -11,7 +11,7 @@ pipeline {
     agent {
         docker {
             image 'centos:latest'
-            label 'node'
+            label 'dind'
             }
          }
        stages {
