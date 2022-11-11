@@ -15,13 +15,13 @@ pipeline {
             }
          }
        stages {
-            stage {
+            stage ('checkout') {
               steps {
               script { echo 'checking out' 
               checkout scm}
               }
             }
-            stage {
+            stage ('print envs'){
               steps {
                 script {
                   echo '${ENV}'
