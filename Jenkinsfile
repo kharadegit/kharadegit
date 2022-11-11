@@ -14,6 +14,9 @@ pipeline {
             label 'dind'
             }
          }
+   options {
+        skipDefaultCheckout()
+    }
        stages {
             stage ('checkout') {
               steps {
