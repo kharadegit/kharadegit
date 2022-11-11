@@ -9,21 +9,21 @@ properties([
 ])
 pipeline {
     agent {
-        docker{
-            image 'centos'
+        docker {
+            image 'centos:latest'
             label 'node'
             }
          }
        stages {
-            stage{
-              steps{
-              script{ echo 'checking out' 
+            stage {
+              steps {
+              script { echo 'checking out' 
               checkout scm}
               }
             }
-            stage{
-              steps{
-                script{
+            stage {
+              steps {
+                script {
                   echo '${ENV}'
                   echo '${ACCOUNT}'
                       }
