@@ -27,8 +27,7 @@ pipeline {
             stage ('print envs'){
               steps {
                 script {
-                  echo ${ENV}
-                  echo ${ACCOUNT}
+                  sh("echo '${ENV}'")
                       }
                   }
               }
