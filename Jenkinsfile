@@ -9,10 +9,11 @@ properties([
 ])
 pipeline {
     agent {
-        docker {
-            image 'ubuntu:14.04'
-            label 'dind'
-            }
+        docker any 
+          
+      
+
+           
          }
    options {
         skipDefaultCheckout()
