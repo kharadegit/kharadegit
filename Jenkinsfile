@@ -9,11 +9,11 @@ properties([
 ])
 pipeline {
     agent {
-        docker any 
-          
-      
-
-           
+        docker {
+         node { 
+             label 'test'
+           }
+         }  
          }
    options {
         skipDefaultCheckout()
