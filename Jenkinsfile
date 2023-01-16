@@ -11,7 +11,7 @@ pipeline {
     agent {
 
          node { 
-             label 'test'
+             label 'dind'
            }
          
          }
@@ -33,4 +33,6 @@ pipeline {
                   }
               }
        }
+  post { always {echo 'inside post for the '}}
+
 }
