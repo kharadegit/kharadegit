@@ -38,5 +38,10 @@ pipeline {
   fixed { echo ' Inside post for the fixed'}
   regression {echo 'Only run the steps in post if the current Pipeline is failure,unstable,oraborted and previous run was successful'}
   aborted {echo 'If the current Pipeline run has an aborted' }
-     }
+  failure {echo 'If current Pipeline or stage run has a failed '}
+  success {echo 'If the current Pipeline or stage run has a success'}
+  unstable {echo 'If the current Pipeline or stage run has a unstable'}
+  unsuccessful {echo 'If the current Pipeline or stage run has not a success status'}
+  cleanup {echo 'After evry other post condition has been evaluated'}
+}
 }
