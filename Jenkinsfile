@@ -36,5 +36,6 @@ pipeline {
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
   fixed { echo ' Inside post for the fixed'}
+  regression {echo 'Only run the steps in post if the current Pipeline is failure,unstable,oraborted and previous run was successful'}
        }
 }
