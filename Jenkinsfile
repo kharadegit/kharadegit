@@ -33,6 +33,6 @@ pipeline {
                   }
               }
        }
-  post { always {echo 'inside post for the '}}
-
+  post { always {echo 'inside post for the always '}}
+  post { changed { echo 'Inside post fot the changed'}}
 }
