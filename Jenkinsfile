@@ -18,6 +18,9 @@ pipeline {
    options {
         skipDefaultCheckout()
     }
+       environment {
+         PASS = credentials('secret')
+        }
        stages {
             stage ('checkout') {
               steps {
@@ -29,6 +32,7 @@ pipeline {
               steps {
                 script {
                   sh("echo '${ENV}'")
+                  sh("echo '${PASS}'")
                       }
                   }
               }
@@ -44,4 +48,5 @@ pipeline {
   unsuccessful {echo 'If the current Pipeline or stage run has not a success status'}
   cleanup {echo 'After evry other post condition has been evaluated'}
 }
+
 }
