@@ -32,7 +32,7 @@ pipeline {
               steps {
                 script {
                   sh("echo '${ENV}'")
-                  sh("echo '${PASS}'")
+                  sh("echo '$PASS'")
                       }
                   }
               }
