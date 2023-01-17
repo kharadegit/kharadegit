@@ -5,7 +5,11 @@ properties([
   parameters([
   string(name: 'ENV',defaultValue:'',description:'env'),
   string(name: 'ACCOUNT',defaultValue:'',description:'aws account id')
-    ])
+  text(name: 'TEXT',default value:'param text',description: '')
+  booleanParam(name: 'BOOLEAN',defaultValue:true,description: '')
+  choice(name: 'PARAMETER',choices: [string,text,booleanParam,choice,password],description: '')
+  password(name: 'PASSWORD',defaultValue: 'SECRET',description: '')
+ ])
 ])
 pipeline {
     agent {
@@ -43,6 +47,14 @@ pipeline {
                       }
                   }
               }
+             stage ('print param')
+                steps{
+                  echo "This is example of parameter ${param.TEXT}"
+                  echo "This is example of parameter ${param.BOOLEAN}"
+                  echo "This is example of parameter ${param.CHOICE}"
+                  echo "This is example of parameter ${param.PASSWORD}"
+                  echo "This is example of parameter ${param.ENV}"
+                     }
        }
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
