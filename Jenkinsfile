@@ -5,8 +5,8 @@ properties([
   parameters([
   string(name: 'ENV',defaultValue:'',description:'env'),
   string(name: 'ACCOUNT',defaultValue:'',description:'aws account id')
-  text(name: 'TEXT',defaultValue:'text',description: '')
-  booleanParam(name: 'BOOLEAN',defaultValue:true,description: '')
+  text(name: 'TEXT',defaultValue: 'text',description: '')
+  booleanParam(name: 'BOOLEAN',defaultValue: true,description: '')
   choice(name: 'PARAMETER',choices: [string,text,booleanParam,choice,password],description: '')
   password(name: 'PASSWORD',defaultValue: 'SECRET',description: '')
  ])
