@@ -20,6 +20,7 @@ pipeline {
     }
        environment {
          PASS = credentials('secret')
+         TOKEN = credentials('token')
         }
        stages {
             stage ('checkout') {
@@ -32,7 +33,8 @@ pipeline {
               steps {
                 script {
                   sh("echo '${ENV}'")
-                  sh("echo '$PASS'")
+                  sh("echo $PASS")
+                  sh("cat $TOKEN")
                       }
                   }
               }
