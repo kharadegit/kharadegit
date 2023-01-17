@@ -33,11 +33,11 @@ pipeline {
             stage ('print envs'){
               steps {
                 script {
-                  sh("echo '${ENV}'")
-                  sh("echo $PASS")
-                  sh('cat $TOKEN')
-                  sh("echo 'Username:' $USER_USR")
-                  sh("'Password:' $USER_PSW")
+                  sh 'echo "${ENV}"'
+                  sh 'echo "$PASS"'
+                  sh 'cat "$TOKEN"'
+                  sh 'echo "Username: $USER_USR"'
+                  sh 'echo "Password: $USER_PSW"'
                       }
                   }
               }
