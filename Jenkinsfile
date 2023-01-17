@@ -5,7 +5,7 @@ properties([
   parameters([
   string(name: 'ENV',defaultValue:'',description:'env'),
   string(name: 'ACCOUNT',defaultValue:'',description:'aws account id')
-  text(name: 'TEXT',defaultValue: '',description: '')
+  text(name: 'REGION',defaultValue: '',description: '')
   booleanParam(name: 'BOOLEAN',defaultValue: true,description: '')
   choice(name: 'PARAMETER',choices: ['string','text','booleanParam','choice','password'],description: '')
   password(name: 'PASSWORD',defaultValue: '',description: '')
@@ -49,7 +49,7 @@ pipeline {
               }
              stage ('print param')
                 steps{
-                  echo "This is example of parameter ${param.TEXT}"
+                  echo "This is example of parameter ${param.REGION}"
                   echo "This is example of parameter ${param.BOOLEAN}"
                   echo "This is example of parameter ${param.CHOICE}"
                   echo "This is example of parameter ${param.PASSWORD}"
