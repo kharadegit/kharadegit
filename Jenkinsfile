@@ -16,8 +16,9 @@ pipeline {
          
          }
    options {
-        timeout(time:1,unit: 'SECONDS')
+        timeout(time:360,unit: 'SECONDS')
         skipDefaultCheckout()
+        timestamps()
     }
        environment {
          PASS = credentials('secret')
