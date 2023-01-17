@@ -36,8 +36,8 @@ pipeline {
                   sh("echo '${ENV}'")
                   sh("echo $PASS")
                   sh("cat $TOKEN")
-                  sh("Username: $USER_USR")
-                  sh("Password: $USER_PSW")
+                  sh("echo 'Username:' $USER_USR")
+                  sh("'Password:' $USER_PSW")
                       }
                   }
               }
