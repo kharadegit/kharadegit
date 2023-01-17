@@ -16,6 +16,7 @@ pipeline {
          
          }
    options {
+        timeout(time:1,unit: 'SECONDS')
         skipDefaultCheckout()
     }
        environment {
