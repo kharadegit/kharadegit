@@ -47,7 +47,7 @@ pipeline {
                       }
                   }
               }
-             stage ('print param')
+             stage ('print param'){
                 steps{
                   echo "This is example of parameter ${param.REGION}"
                   echo "This is example of parameter ${param.BOOLEAN}"
@@ -55,6 +55,7 @@ pipeline {
                   echo "This is example of parameter ${param.PASSWORD}"
                   echo "This is example of parameter ${param.ENV}"
                      }
+                 }
        }
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
