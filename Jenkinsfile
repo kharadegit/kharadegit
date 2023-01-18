@@ -49,11 +49,11 @@ pipeline {
               }
              stage ('print param'){
                 steps{
-                  echo "This is example of parameter ${param.REGION}"
-                  echo "This is example of parameter ${param.BOOLEAN}"
-                  echo "This is example of parameter ${param.CHOICE}"
-                  echo "This is example of parameter ${param.PASSWORD}"
-                  echo "This is example of parameter ${param.ENV}"
+                  echo "This is example of parameter ${params.REGION}"
+                  echo "This is example of parameter ${params.BOOLEAN}"
+                  echo "This is example of parameter ${params.CHOICE}"
+                  echo "This is example of parameter ${params.PASSWORD}"
+                  echo "This is example of parameter ${params.ENV}"
                      }
                  }
        }
