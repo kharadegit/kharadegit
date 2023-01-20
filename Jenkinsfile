@@ -55,7 +55,7 @@ pipeline {
                   echo "This is example of parameter ${params.PASSWORD}"
                   echo "This is example of parameter ${params.ENV}"
                       script {
-                           build job:"my_website_dev/main/main"
+                           build job:"my_website_dev/main"
                             }
                      }
                  }
