@@ -23,7 +23,7 @@ pipeline {
              cron('*/50 * * * *')
              }
    options {
-        timeout(time:360,unit: 'SECONDS')
+        timeout(time:1089,unit: 'SECONDS')
         skipDefaultCheckout()
         timestamps()
     }
