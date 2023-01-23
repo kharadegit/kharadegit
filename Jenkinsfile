@@ -80,20 +80,20 @@ pipeline {
               stage('when example single cond.')
               {
                when {branch 'dev' }
-               steps{ echo 'Deploying dev using when condition'}
+               steps{ echo 'Deploying dev using when single condition'}
               }
               stage('when example multiple cond.')
               {
                when {branch 'dev'
                      environment name:'DEPLOY_TO', value: 'dev'}
-               steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
+               steps{ echo "Deploying dev using when with multiple condition ${DEPLOY_TO}"}
                }
               stage('when example nested cond(allOf).')
               {
                when {
                      allOf{branch 'dev'
                      environment name:'DEPLOY_TO', value: 'dev'}}
-               steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
+               steps{ echo "Deploying dev using when condition allOf ${DEPLOY_TO}"}
                } 
                stage('when example multiple cond and nested cond.')
               {
@@ -101,7 +101,7 @@ pipeline {
                      branch 'dev'
                      anyOf{environment name:'DEPLOY_TO', value: 'dev'
                      environment name:'DEPLOY_TO', value: 'prod'}}
-               steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
+               steps{ echo "Deploying dev using when condition anyOf ${DEPLOY_TO}"}
                }
        }
   post { always {echo 'inside post for the always '}
