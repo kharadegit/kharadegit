@@ -20,7 +20,7 @@ pipeline {
          
          }
     triggers {
-             cron('*/10 * * * *')
+             cron('*/30 * * * *')
              }
    options {
         timeout(time:360,unit: 'SECONDS')
@@ -58,9 +58,9 @@ pipeline {
                   echo "This is example of parameter ${params.CHOICE}"
                   echo "This is example of parameter ${params.PASSWORD}"
                   echo "This is example of parameter ${params.ENV}"
-                 //     script {
-                  //         build job:"first_website/main"
-                     //       }
+                    script {
+                           build job:"first_website/Sequential"
+                           }
                      }
                  }
               stage('Input example')
