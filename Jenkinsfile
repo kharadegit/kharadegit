@@ -62,6 +62,20 @@ pipeline {
                             }
                      }
                  }
+              stage('Input example')
+               {
+                input {
+                     message " Should we cont?"
+                     ok "Yes,we should"
+                     submitter "sagar"
+                     parameters {
+                         string(name:'PERSON',defaultValue: 'Mr Jenkins', description:'Who should I say hello')
+                      }
+                    }
+                     steps{
+                         echo "Hello,${PERSON},nice to meet you."
+                      }
+               }
        }
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
