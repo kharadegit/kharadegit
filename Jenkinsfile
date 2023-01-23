@@ -57,9 +57,9 @@ pipeline {
                   echo "This is example of parameter ${params.CHOICE}"
                   echo "This is example of parameter ${params.PASSWORD}"
                   echo "This is example of parameter ${params.ENV}"
-                      script {
-                           build job:"first_website/main"
-                            }
+                 //     script {
+                  //         build job:"first_website/main"
+                     //       }
                      }
                  }
               stage('Input example')
