@@ -103,6 +103,14 @@ pipeline {
                      environment name:'DEPLOY_TO', value: 'prod'}}
                steps{ echo "Deploying dev using when condition anyOf ${DEPLOY_TO}"}
                }
+               stage('when example expression cond and nested cond.')
+              {
+               when {
+                     expression { BRANCH_NAME ==~ /(dev|stage)/}
+                     anyOf{environment name:'DEPLOY_TO', value: 'dev'
+                     environment name:'DEPLOY_TO', value: 'stage'}}
+               steps{ echo "Deploying dev using when condition expression ${DEPLOY_TO}"}
+               }
        }
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
