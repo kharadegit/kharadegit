@@ -76,6 +76,32 @@ pipeline {
                          echo "Hello,${PERSON},nice to meet you."
                       }
                }
+              stage('when example single cond.')
+              {
+               when {branch 'dev' }
+               steps{ echo 'Deploying dev using when condition'}
+              }
+              stage('when example multiple cond.')
+              {
+               when {branch 'dev'
+                     environment name:'DEPLOY_TO', value: 'production'}
+               steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
+               }
+              stage('when example nested cond(allOf).')
+              {
+               when {
+                     allOf{branch 'dev'
+                     environment name:'DEPLOY_TO', value: 'dev'}}
+               steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
+               } 
+               stage('when example multiple cond and nested cond.')
+              {
+               when {
+                     branch 'dev'
+                     anyOf{environment name:'DEPLOY_TO', value: 'dev'
+                     environment name:'DEPLOY_TO', value: 'production'}}
+               steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
+               }
        }
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
