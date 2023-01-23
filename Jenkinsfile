@@ -20,7 +20,7 @@ pipeline {
          
          }
     triggers {
-             cron('*/30 * * * *')
+             cron('*/50 * * * *')
              }
    options {
         timeout(time:360,unit: 'SECONDS')
