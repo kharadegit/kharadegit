@@ -31,6 +31,7 @@ pipeline {
          PASS = credentials('secret')
          TOKEN = credentials('token')
          USER = credentials ('username')
+         DEPLOY_TO = 'dev'
         }
        stages {
             stage ('checkout') {
@@ -84,7 +85,7 @@ pipeline {
               stage('when example multiple cond.')
               {
                when {branch 'dev'
-                     environment name:'DEPLOY_TO', value: 'production'}
+                     environment name:'DEPLOY_TO', value: 'dev'}
                steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
                }
               stage('when example nested cond(allOf).')
@@ -99,7 +100,7 @@ pipeline {
                when {
                      branch 'dev'
                      anyOf{environment name:'DEPLOY_TO', value: 'dev'
-                     environment name:'DEPLOY_TO', value: 'production'}}
+                     environment name:'DEPLOY_TO', value: 'prod'}}
                steps{ echo 'Deploying dev using when condition ${DEPLOY_TO}'}
                }
        }
