@@ -17,8 +17,9 @@ pipeline {
       stage('Example of basics') {
         steps{
          script{
-         withEnv([CURRENT_DIR=pwd()])
+         withEnv([CURRENT_DIR="test"])
              {
+             pwd()
          sh 'mkdir test_build'
          dir('test_build')
          echo 'directory created'
