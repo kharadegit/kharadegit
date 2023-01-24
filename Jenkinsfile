@@ -26,12 +26,13 @@ pipeline {
            echo 'directory created'
               if (fileExists('$C_PWD/test_build/hello.sh'))
               {
-                    readFile(file: 'hello.sh')
+                   def data = readFile(file: 'hello.sh')
                }
                else
                 {
                     writeFile(file: '/var/jenkins_home/workspace/first_website_basic_steps/test_build/hello.sh',text: 'Hello Sagar')
-                    readFile(file: '/var/jenkins_home/workspace/first_website_basic_steps/test_build/hello.sh')
+                    data = readFile(file: '/var/jenkins_home/workspace/first_website_basic_steps/test_build/hello.sh')
+                    println(data)
                 }
              }
          }
