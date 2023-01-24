@@ -58,11 +58,24 @@ pipeline {
                   echo "This is example of parameter ${params.CHOICE}"
                   echo "This is example of parameter ${params.PASSWORD}"
                   echo "This is example of parameter ${params.ENV}"
-                    script {
-                           build job:"first_website/Sequential"
-                           }
                      }
                  }
+              stage ('Example of sqeuntial pipeline')
+              {
+              steps{
+                    script {
+                       build job:"first_website/Sequential"
+                     }
+                   }
+              }
+              stage ('Example of Parallel pipeline')
+              {
+              steps{
+                    script {
+                       build job:"first_website/parallel"
+                     }
+                   }
+              }
               stage('Input example')
                {
                 input {
