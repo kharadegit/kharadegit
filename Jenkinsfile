@@ -25,6 +25,7 @@ pipeline {
    options {
         timeout(time:1089,unit: 'SECONDS')
         skipDefaultCheckout()
+        buildDicarder(logRotator(numToKeepStr: '10'))
         timestamps()
     }
        environment {
