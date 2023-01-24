@@ -17,8 +17,8 @@ pipeline {
       stage('Example of basics') {
         steps{
          script{
-         withEnv([CURRENT_DIR="test"])
-             {
+      //   withEnv([CURRENT_DIR="test"])
+        //     {
              pwd()
          sh 'mkdir test_build'
          dir('test_build')
@@ -32,7 +32,7 @@ pipeline {
             writeFile(file:'hello.sh',text:'Hello,Sagar')
             }
              }
-         }
+        // }
         }
       }
     }
