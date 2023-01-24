@@ -21,7 +21,7 @@ pipeline {
         //     {
              pwd()
          sh 'mkdir test_build'
-         dir('test_build')
+         dir('test_build'){sh 'pwd'}
          echo 'directory created'
             if (fileExsist('$CURRENT_DIR/test_build/hello.sh'))
             {
