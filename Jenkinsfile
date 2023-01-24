@@ -31,7 +31,7 @@ pipeline {
                else
                 {
                     writeFile(file:'hello.sh',text:'Hello,Sagar')
-                    readFile('hello.sh')
+                    readFile(file:'hello.sh')
                 }
              }
          }
