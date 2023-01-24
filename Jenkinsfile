@@ -13,13 +13,14 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '1'))
         timestamps()
     }
+    
     stages {
       stage('Example of basics') {
         steps{
          script{
       //   withEnv([CURRENT_DIR="test"])
         //     {
-             pwd()
+          def C_PWD = pwd()
          sh 'mkdir test_build'
          dir('test_build'){sh 'pwd'}
          echo 'directory created'
@@ -35,5 +36,10 @@ pipeline {
         // }
         }
       }
-    }
+        post {
+        always{
+        deleteDir(${C_PWD})
+        }
+        }
+}
 }
