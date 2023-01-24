@@ -125,6 +125,13 @@ pipeline {
                      environment name:'DEPLOY_TO', value: 'stage'}}
                steps{ echo "Deploying dev using when condition expression ${DEPLOY_TO}"}
                }
+               stage('Example fo the basics functions'){
+               steps{
+                    script {
+                       build job:"first_website/basic_steps"
+                     }
+                   }
+               }
        }
   post { always {echo 'inside post for the always '}
   changed { echo 'Inside post fot the changed'}
