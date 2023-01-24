@@ -31,13 +31,14 @@ pipeline {
                else
                 {
                     writeFile(file:'hello.sh',text:'Hello,Sagar')
-                    readFile(file:'hello.sh')
+                    readFile(file:'/var/jenkins_home/workspace/first_website_basic_steps/test_build/hello.sh')
                 }
              }
          }
         
             post {
                  always{
+                    sleep(time: 10)
                     deleteDir()
                     }
                  }
