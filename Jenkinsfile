@@ -37,7 +37,7 @@ pipeline {
         
             post {
                  always{
-                    deleteDir($C_PWD)
+                    deleteDir()
                     }
                  }
             
