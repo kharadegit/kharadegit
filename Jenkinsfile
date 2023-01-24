@@ -18,6 +18,7 @@ pipeline {
         steps{
          script{
          withEnv([CURRENT_DIR=pwd()])
+             {
          sh 'mkdir test_build'
          dir('test_build')
          echo 'directory created'
@@ -29,6 +30,7 @@ pipeline {
             {
             writeFile(file:'hello.sh',text:'Hello,Sagar')
             }
+             }
          }
         }
       }
