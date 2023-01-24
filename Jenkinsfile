@@ -1,48 +1,52 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent none
+    agent any
     stages {
-       stage('No Sequential Stage'){
-        agent {
-            label 'dind'
-         }
-        steps {
-           echo "On non sequential stage"
+        stage('Non-Parallel Stage') {
+            steps {
+                echo 'This stage will be executed first.'
+            }
         }
-      }
-      stage("Sequential"){
-         agent{
-             label 'dind'
-         }
-         environment {
-            FOR_SEQUENTIAL = "sequential pipeline"
-         }
-         stages {
-             stage ('Sequentail 1'){
-                  steps {
-                     echo "In sequential one"
-                   }
-             }
-             stage ('Sequentail 2'){
-                  steps {
-                     echo "In sequential two"
-                   }
-             }
-             stage ('Parralel In sequential'){
-                   parallel{
-                       stage('In parallel one'){
-                          steps {
-                             echo "In sequential one"
-                           }
-                       }
-                       stage('In parallel two'){
-                          steps {
-                             echo "In sequential two"
-                           }
-                       }  
+        stage('Parallel Stage') {
+            when {
+                branch 'master'
+            }
+            failFast true
+            parallel {
+                stage('Branch A') {
+                    agent {
+                        label "for-branch-a"
+                    }
+                    steps {
+                        echo "On Branch A"
                     }
                 }
-           }
-       }
+                stage('Branch B') {
+                    agent {
+                        label "for-branch-b"
+                    }
+                    steps {
+                        echo "On Branch B"
+                    }
+                }
+                stage('Branch C') {
+                    agent {
+                        label "for-branch-c"
+                    }
+                    stages {
+                        stage('Nested 1') {
+                            steps {
+                                echo "In stage Nested 1 within Branch C"
+                            }
+                        }
+                        stage('Nested 2') {
+                            steps {
+                                echo "In stage Nested 2 within Branch C"
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
