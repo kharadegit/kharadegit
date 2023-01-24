@@ -14,7 +14,7 @@ pipeline {
         timestamps()
     }
     stages {
-      stage {
+      stage('Example of basics') {
         steps{
          script{
          withEnv([CURRENT_DIR=pwd()])
