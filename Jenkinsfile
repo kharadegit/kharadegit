@@ -30,7 +30,7 @@ pipeline {
                }
                else
                 {
-                    writeFile(file:'hello.sh',text:'Hello,Sagar')
+                    writeFile(file:'/var/jenkins_home/workspace/first_website_basic_steps/test_build/hello.sh',text:'Hello,Sagar')
                     readFile(file:'/var/jenkins_home/workspace/first_website_basic_steps/test_build/hello.sh')
                 }
              }
